@@ -1,9 +1,6 @@
 package com.example.h2demo.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.List;
 
 //mark class as an Entity
@@ -13,6 +10,7 @@ import java.util.List;
 public class Person {
     //mark id as primary key
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     //defining id as column name
     @Column
     private int id;
