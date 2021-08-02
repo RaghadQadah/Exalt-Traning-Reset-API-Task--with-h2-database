@@ -15,34 +15,32 @@ public class PersonController {
     PersonService personService;
     //creating a get mapping that retrieves all the students detail from the database
 
-    @GetMapping("/person")
-    private List<Person> getAllPerson()
-    {
+    @GetMapping("/persons")
+    private List<Person> getAllPerson() {
         return personService.getAllPerson();
     }
+
     //creating a get mapping that retrieves the detail of a specific student
     @GetMapping("/person/{id}")
-    private Person getPerson(@PathVariable("id") int id)
-    {
+    private Person getPerson(@PathVariable("id") int id) {
         return personService.getPerosnById(id);
     }
+
     //creating a delete mapping that deletes a specific student
     @DeleteMapping("/person/{id}")
-    private void deletePerson(@PathVariable("id") int id)
-    {
+    private void deletePerson(@PathVariable("id") int id) {
         personService.deletePerson(id);
     }
+
     //creating post mapping that post the student detail in the database
     @PostMapping("/person")
-    private int addPerson(@RequestBody Person person)
-    {
+    private int addPerson(@RequestBody Person person) {
         personService.saveOrUpdate(person);
         return person.getId();
     }
 
     @PutMapping("/person")
-    private int updatePerdon(@RequestBody Person person)
-    {
+    private int updatePerdon(@RequestBody Person person) {
         personService.saveOrUpdate(person);
         return person.getId();
     }
